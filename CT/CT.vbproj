@@ -1,0 +1,795 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <!--
+    This section defines project-level properties.
+
+    AssemblyName
+      Name of the output assembly.
+    Configuration
+      Specifies a default value for debug.
+    OutputType
+      Must be "Library" for VSTO.
+    Platform
+      Specifies what CPU the output of this project can run on.
+    NoStandardLibraries
+      Set to "false" for VSTO.
+    RootNamespace
+      In C#, this specifies the namespace given to new files. In VB, all objects are
+      wrapped in this namespace at runtime.
+  -->
+  <PropertyGroup>
+    <ProjectTypeGuids>{BAA0C2D2-18E2-41B9-852F-F413020CAA33};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3DC88A48-CC28-45C2-A4F5-CF5F59D01100}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CT</RootNamespace>
+    <AssemblyName>CT</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <DefineConstants>VSTO40</DefineConstants>
+    <StartupObject>
+    </StartupObject>
+    <IsWebBootstrapper>False</IsWebBootstrapper>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <PublishUrl>W:\VEV\PPE\SoftwareTool_ConnectedTesting\CT_1.15\</PublishUrl>
+    <InstallUrl />
+    <TargetCulture>en</TargetCulture>
+    <ApplicationVersion>1.15.0.0</ApplicationVersion>
+    <AutoIncrementApplicationRevision>false</AutoIncrementApplicationRevision>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>days</UpdateIntervalUnits>
+    <ProductName>CT</ProductName>
+    <PublisherName />
+    <SupportUrl />
+    <FriendlyName>CT</FriendlyName>
+    <OfficeApplicationDescription />
+    <LoadBehavior>3</LoadBehavior>
+  </PropertyGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.VSTORuntime.4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft Visual Studio 2010 Tools for Office Runtime %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <PropertyGroup>
+    <!--
+      OfficeApplication
+        Add-in host application
+    -->
+    <OfficeApplication>Excel</OfficeApplication>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <!--
+    This section defines properties that are set when the "Debug" configuration is selected.
+
+    DebugSymbols
+      If "true", create symbols (.pdb). If "false", do not create symbols.
+    DefineConstants
+      Constants defined for the preprocessor.
+    EnableUnmanagedDebugging
+      If "true", starting the debugger will attach both managed and unmanaged debuggers.
+    Optimize
+      If "true", optimize the build output. If "false", do not optimize.
+    OutputPath
+      Output path of project relative to the project file.
+    WarningLevel
+      Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DefineConstants>$(DefineConstants)</DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugType>Full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>CT.xml</DocumentationFile>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+  </PropertyGroup>
+  <!--
+    This section defines properties that are set when the "Release" configuration is selected.
+
+    DebugSymbols
+      If "true", create symbols (.pdb). If "false", do not create symbols.
+    DefineConstants
+      Constants defined for the preprocessor.
+    EnableUnmanagedDebugging
+      If "true", starting the debugger will attach both managed and unmanaged debuggers.
+    Optimize
+      If "true", optimize the build output. If "false", do not optimize.
+    OutputPath
+      Output path of project relative to the project file.
+    WarningLevel
+      Warning level for the compiler.
+  -->
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugType>Full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>CT.xml</DocumentationFile>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <!--
+    This section specifies references for the project.
+  -->
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Tools.Common.v4.0.Utilities, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.QualityTools.Testing.Fakes, Version=12.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Tools.v4.0.Framework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.VisualStudio.Tools.Applications.Runtime, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Tools, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Tools.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Office.Tools.Excel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <Private>False</Private>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <!-- Visual Basic supports importing namespaces (equivalent to "using" statements in C#). -->
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Text" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="Office = Microsoft.Office.Core" />
+    <Import Include="Excel = Microsoft.Office.Interop.Excel" />
+    <Import Include="Microsoft.Office.Tools.Excel" />
+  </ItemGroup>
+  <!--
+    This section defines the user source files that are part of the project.
+     
+    A "Compile" element specifies a source file to compile.
+    An "EmbeddedResource" element specifies an .resx file for embedded resources.
+    A "None" element specifies a file that is not to be passed to the compiler (for instance, 
+    a text file or XML file).
+    The "AppDesigner" element specifies the directory where the application properties files
+    can be found.
+  -->
+  <ItemGroup>
+    <AppDesigner Include="My Project\" />
+    <Compile Include="Form\AutoUpdate\Update.vb" />
+    <Compile Include="Form\DataCenter\AddInUtilities.vb" />
+    <Compile Include="Form\DataCenter\ErrorCenter.vb" />
+    <Compile Include="Form\DataCenter\GlobalFunctions.vb" />
+    <Compile Include="Form\DataCenter\GlobalSections.vb" />
+    <Compile Include="Form\DataCenter\GlobalValues.vb" />
+    <Compile Include="Form\DataCenter\ModuleFunction.vb" />
+    <Compile Include="Form\DataCenter\ProcessStepConfig.vb" />
+    <Compile Include="Form\DataCenter\ProgramConfig.vb" />
+    <Compile Include="Form\DataCenter\SectionFlag.vb" />
+    <Compile Include="Form\DataCenter\StaticColumnsWidth.vb" />
+    <Compile Include="Form\DataCenter\Usercase.vb" />
+    <Compile Include="Form\DataCenter\VehicleConfig.vb" />
+    <Compile Include="Form\DataCenter\VehicleProgramInfoColumns.vb" />
+    <Compile Include="Form\DataCenter\WorkSheet.vb" />
+    <Compile Include="Form\DisplayUtilities\clsWorksheetEvents.vb" />
+    <Compile Include="Form\DisplayUtilities\DrawTndPlanArea.vb" />
+    <Compile Include="Form\DisplayUtilities\DrawTndPlanHeader.vb" />
+    <Compile Include="Form\DisplayUtilities\DrawTndPlanInformation.vb" />
+    <Compile Include="Form\DisplayUtilities\Plan.vb" />
+    <Compile Include="Form\DisplayUtilities\Ribbon\UndoButton.vb" />
+    <Compile Include="Form\DisplayUtilities\PlanSections\SevenTabsFunctions.vb" />
+    <Compile Include="Form\DisplayUtilities\Ribbon\Utilities.vb" />
+    <Compile Include="Form\DisplayUtilities\TndPlanTitle.vb" />
+    <Compile Include="Form\DisplayUtilities\TndSection.vb" />
+    <Compile Include="Form\DisplayUtilities\Utilities.vb" />
+    <Compile Include="Form\Reports\EngineTransmissionReport_Rig.vb" />
+    <Compile Include="Form\Reports\PrecheckF4TestReport.vb" />
+    <Compile Include="Form\Reports\EngineTransmissionReport.vb" />
+    <Compile Include="Form\Reports\ExporToExcelReport.vb" />
+    <Compile Include="Form\Reports\TotalCountReport.vb" />
+    <Compile Include="Form\Reports\UnitReport.vb" />
+    <Compile Include="Form\Style\Styles.vb" />
+    <Compile Include="Form\TndContextMenu\CopyButton.vb" />
+    <Compile Include="Form\TndContextMenu\CopyTextButton.vb" />
+    <Compile Include="Form\TndContextMenu\CustomContextMenu.vb" />
+    <Compile Include="Form\TndContextMenu\CutButton.vb" />
+    <Compile Include="Form\TndContextMenu\DeleteButton.vb" />
+    <Compile Include="Form\TndContextMenu\EditProcessStepButton.vb" />
+    <Compile Include="Form\TndContextMenu\EditUsercaseButton.vb" />
+    <Compile Include="Form\TndContextMenu\MoveLeftButton.vb" />
+    <Compile Include="Form\TndContextMenu\MoveRightButton.vb" />
+    <Compile Include="Form\TndContextMenu\NewButton.vb" />
+    <Compile Include="Form\TndContextMenu\SelectAllButton.vb" />
+    <Compile Include="Form\TndContextMenu\SelectUsercaseButton.vb" />
+    <Compile Include="Form\TndContextMenu\TaskPane\MessageTaskPaneControl.Designer.vb">
+      <DependentUpon>MessageTaskPaneControl.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndContextMenu\TaskPane\MessageTaskPaneControl.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\TndContextMenu\TaskPane\ProcessStepInfoTskPane.Designer.vb">
+      <DependentUpon>ProcessStepInfoTskPane.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndContextMenu\TaskPane\ProcessStepInfoTskPane.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmAddColumn.Designer.vb">
+      <DependentUpon>frmAddColumn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmAddColumn.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmAddDates.Designer.vb">
+      <DependentUpon>frmAddDates.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmAddDates.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmBase.Designer.vb">
+      <DependentUpon>frmBase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmBase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmCDSIDtoDVPName.Designer.vb">
+      <DependentUpon>frmCDSIDtoDVPName.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmCDSIDtoDVPName.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmColumnWidth.Designer.vb">
+      <DependentUpon>frmColumnWidth.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmColumnWidth.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmDeleteVehicle.Designer.vb">
+      <DependentUpon>frmDeleteVehicle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmDeleteVehicle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmEdit.Designer.vb">
+      <DependentUpon>frmEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmEditUsercase.designer.vb">
+      <DependentUpon>frmEditUsercase.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmEditUsercase.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmExporttoexcel.Designer.vb">
+      <DependentUpon>frmExporttoexcel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmExporttoexcel.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmFit4TestRequest.Designer.vb">
+      <DependentUpon>frmFit4TestRequest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmFit4TestRequest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmHCIDSelect.Designer.vb">
+      <DependentUpon>frmHCIDSelect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmHCIDSelect.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmHeaderEdit.Designer.vb">
+      <DependentUpon>frmHeaderEdit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmHeaderEdit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmHolidayPlan.Designer.vb">
+      <DependentUpon>frmHolidayPlan.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmHolidayPlan.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmMoveVehiclePosition.Designer.vb">
+      <DependentUpon>frmMoveVehiclePosition.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmMoveVehiclePosition.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmNew.Designer.vb">
+      <DependentUpon>frmNew.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmNew.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmAddColumn_Rig.Designer.vb">
+      <DependentUpon>frmAddColumn_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmAddColumn_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmAddDates_Rig.Designer.vb">
+      <DependentUpon>frmAddDates_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmAddDates_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmCDSIDtoDVPName_Rig.Designer.vb">
+      <DependentUpon>frmCDSIDtoDVPName_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmCDSIDtoDVPName_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmDeleteVehicle_Rig.Designer.vb">
+      <DependentUpon>frmDeleteVehicle_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmDeleteVehicle_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmEdit_Rig.Designer.vb">
+      <DependentUpon>frmEdit_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmEdit_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmEditUsercase_Rig.Designer.vb">
+      <DependentUpon>frmEditUsercase_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmEditUsercase_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmExporttoexcel_Rig.Designer.vb">
+      <DependentUpon>frmExporttoexcel_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmExporttoexcel_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmFit4TestRequest_Rig.Designer.vb">
+      <DependentUpon>frmFit4TestRequest_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmFit4TestRequest_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmHeaderEdit_Rig.Designer.vb">
+      <DependentUpon>frmHeaderEdit_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmHeaderEdit_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmHolidayPlan_Rig.Designer.vb">
+      <DependentUpon>frmHolidayPlan_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmHolidayPlan_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmMoveVehiclePosition_Rig.Designer.vb">
+      <DependentUpon>frmMoveVehiclePosition_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmMoveVehiclePosition_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmNew_Rig.Designer.vb">
+      <DependentUpon>frmNew_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmNew_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmNewVehicle_Rig.Designer.vb">
+      <DependentUpon>frmNewVehicle_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmNewVehicle_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmNewVehicle.Designer.vb">
+      <DependentUpon>frmNewVehicle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmNewVehicle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmPhonebook.Designer.vb">
+      <DependentUpon>frmPhonebook.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmPhonebook.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmPick1stVP.Designer.vb">
+      <DependentUpon>frmPick1stVP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmPick1stVP.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmPlanValidation.Designer.vb">
+      <DependentUpon>frmPlanValidation.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmPlanValidation.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmProgressbar.Designer.vb">
+      <DependentUpon>frmProgressbar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmProgressbar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\frmSearch.Designer.vb">
+      <DependentUpon>frmSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\frmSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmPhonebook_Rig.Designer.vb">
+      <DependentUpon>frmPhonebook_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmPhonebook_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmPlanValidation_Rig.Designer.vb">
+      <DependentUpon>frmPlanValidation_Rig.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Form\TndForm\RigForms\frmPlanValidation_Rig.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RbnTnDControlPanel.designer.vb">
+      <DependentUpon>RbnTnDControlPanel.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RbnTnDControlPanel.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="RbnTnDControlPanelLogic\BuckPlan.vb" />
+    <Compile Include="RbnTnDControlPanelLogic\RigPlan.vb" />
+    <Compile Include="RbnTnDControlPanelLogic\VehiclePlan.vb" />
+    <Compile Include="ThisAddIn.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Form\TndContextMenu\TaskPane\MessageTaskPaneControl.resx">
+      <DependentUpon>MessageTaskPaneControl.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndContextMenu\TaskPane\ProcessStepInfoTskPane.resx">
+      <DependentUpon>ProcessStepInfoTskPane.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmAddColumn.resx">
+      <DependentUpon>frmAddColumn.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmAddDates.resx">
+      <DependentUpon>frmAddDates.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmBase.resx">
+      <DependentUpon>frmBase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmCDSIDtoDVPName.resx">
+      <DependentUpon>frmCDSIDtoDVPName.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmColumnWidth.resx">
+      <DependentUpon>frmColumnWidth.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmDeleteVehicle.resx">
+      <DependentUpon>frmDeleteVehicle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmEdit.resx">
+      <DependentUpon>frmEdit.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmEditUsercase.resx">
+      <DependentUpon>frmEditUsercase.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmExporttoexcel.resx">
+      <DependentUpon>frmExporttoexcel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmFit4TestRequest.resx">
+      <DependentUpon>frmFit4TestRequest.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmHeaderEdit.resx">
+      <DependentUpon>frmHeaderEdit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmHolidayPlan.resx">
+      <DependentUpon>frmHolidayPlan.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmMoveVehiclePosition.resx">
+      <DependentUpon>frmMoveVehiclePosition.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmNew.resx">
+      <DependentUpon>frmNew.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmAddColumn_Rig.resx">
+      <DependentUpon>frmAddColumn_Rig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmAddDates_Rig.resx">
+      <DependentUpon>frmAddDates_Rig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmCDSIDtoDVPName_Rig.resx">
+      <DependentUpon>frmCDSIDtoDVPName_Rig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmDeleteVehicle_Rig.resx">
+      <DependentUpon>frmDeleteVehicle_Rig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmEdit_Rig.resx">
+      <DependentUpon>frmEdit_Rig.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmEditUsercase_Rig.resx">
+      <DependentUpon>frmEditUsercase_Rig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmExporttoexcel_Rig.resx">
+      <DependentUpon>frmExporttoexcel_Rig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmFit4TestRequest_Rig.resx">
+      <DependentUpon>frmFit4TestRequest_Rig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmHeaderEdit_Rig.resx">
+      <DependentUpon>frmHeaderEdit_Rig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmHolidayPlan_Rig.resx">
+      <DependentUpon>frmHolidayPlan_Rig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmMoveVehiclePosition_Rig.resx">
+      <DependentUpon>frmMoveVehiclePosition_Rig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmNew_Rig.resx">
+      <DependentUpon>frmNew_Rig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmNewVehicle_Rig.resx">
+      <DependentUpon>frmNewVehicle_Rig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmNewVehicle.resx">
+      <DependentUpon>frmNewVehicle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmPhonebook.resx">
+      <DependentUpon>frmPhonebook.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmPick1stVP.resx">
+      <DependentUpon>frmPick1stVP.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmPlanValidation.resx">
+      <DependentUpon>frmPlanValidation.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmProgressbar.resx">
+      <DependentUpon>frmProgressbar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\frmSearch.resx">
+      <DependentUpon>frmSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmPhonebook_Rig.resx">
+      <DependentUpon>frmPhonebook_Rig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\TndForm\RigForms\frmPlanValidation_Rig.resx">
+      <DependentUpon>frmPlanValidation_Rig.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RbnTnDControlPanel.resx">
+      <DependentUpon>RbnTnDControlPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="CT_1_TemporaryKey.pfx" />
+    <None Include="CT_2_TemporaryKey.pfx" />
+    <None Include="CT_3_TemporaryKey.pfx" />
+    <None Include="CT_4_TemporaryKey.pfx" />
+    <None Include="CT_5_TemporaryKey.pfx" />
+    <None Include="CT_TemporaryKey.pfx" />
+    <None Include="My Project\DataSources\frmHolidayPlan.datasource" />
+    <None Include="ThisAddIn.Designer.xml">
+      <DependentUpon>ThisAddIn.vb</DependentUpon>
+    </None>
+    <Compile Include="ThisAddIn.Designer.vb">
+      <DependentUpon>ThisAddIn.Designer.xml</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <EmbeddedResource Include="Form\TndForm\frmHCIDSelect.resx">
+      <DependentUpon>frmHCIDSelect.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="TndTemplate\TndTemlate.xlsm" />
+    <None Include="TndTemplate\TndTemplate.xltm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CT.Data\CT.Data.vbproj">
+      <Project>{183517b4-3dbe-4227-85f2-b029287841bf}</Project>
+      <Name>CT.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmoothProgressBar\CT.SmoothProgressBar.vbproj">
+      <Project>{3c6f5bec-564d-4bd1-95b0-775453409fce}</Project>
+      <Name>CT.SmoothProgressBar</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Updater\Updater.vbproj">
+      <Project>{067096f6-ab39-4f9f-8d36-c479a86f2e81}</Project>
+      <Name>Updater</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OpenLoad.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-view-file-columns-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MonthCalendar_689.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EmptyIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Outlook">
+      <Guid>{00062FFF-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>9</VersionMajor>
+      <VersionMinor>6</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Scripting">
+      <Guid>{420B2830-E718-11CF-893D-00A0C9054228}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="stdole1">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BorderGray.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BorderWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{94E38DFF-614B-4CBD-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>
+    </ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>0D7E9201101209130037D9A330381A2C7A93FD32</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Test|AnyCPU'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Test\</OutputPath>
+    <DocumentationFile>CT.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>Full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+    <DefineDebug>true</DefineDebug>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <!-- Include the build rules for a Visual Basic project. -->
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- Include additional build rules for an Office application add-in. -->
+  <Import Project="$(VSToolsPath)\OfficeTools\Microsoft.VisualStudio.Tools.Office.targets" Condition="'$(VSToolsPath)' != ''" />
+  <!-- This section defines VSTO properties that describe the host-changeable project properties. -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{BAA0C2D2-18E2-41B9-852F-F413020CAA33}">
+        <ProjectProperties HostName="Excel" HostPackage="{29A7B9D7-A7F1-4328-8EF0-6B2D1A56B2C1}" OfficeVersion="15.0" VstxVersion="4.0" ApplicationType="Excel" Language="vb" TemplatesPath="" DebugInfoExeName="#Software\Microsoft\Office\16.0\Excel\InstallRoot\Path#excel.exe" DebugInfoCommandLine="/x" AddItemTemplatesGuid="{DCFE8D25-4715-4C33-9EAB-A34A9EBC9544}" />
+        <Host Name="Excel" PublishedHash="69C324AB27932AA2FBF2B7EA72250886FF164DE6" IconIndex="0">
+          <HostItem Name="ThisAddIn" Code="ThisAddIn.vb" CanonicalName="AddIn" PublishedHash="501F60F3B8BAF1916C7D50AECC5342A51A6B73BE" CanActivate="false" IconIndex="1" Blueprint="ThisAddIn.Designer.xml" GeneratedCode="ThisAddIn.Designer.vb" />
+        </Host>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
