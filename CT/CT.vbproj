@@ -613,6 +613,7 @@
     <None Include="CT_3_TemporaryKey.pfx" />
     <None Include="CT_4_TemporaryKey.pfx" />
     <None Include="CT_5_TemporaryKey.pfx" />
+    <None Include="CT_6_TemporaryKey.pfx" />
     <None Include="CT_TemporaryKey.pfx" />
     <None Include="My Project\DataSources\frmHolidayPlan.datasource" />
     <None Include="ThisAddIn.Designer.xml">
@@ -750,11 +751,10 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>
-    </ManifestKeyFile>
+    <ManifestKeyFile>CT_6_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>0D7E9201101209130037D9A330381A2C7A93FD32</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>F3D1C2D97BBBEDD6FB36CCDE9FB11B204A6E6113</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
